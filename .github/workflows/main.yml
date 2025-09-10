@@ -3,6 +3,11 @@ on:
  push:
   branches: [main]
  workflow_dispatch:
+
+permissions:
+  id-token: write 
+  contents: read
+  
 env:
   REGISTRY_NAME: dockertestapp     # <-- Replace with your ACR name (without .azurecr.io)
   IMAGE_NAME: richadockertest              # <-- Replace with your app name
