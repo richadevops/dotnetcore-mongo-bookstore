@@ -21,13 +21,13 @@ jobs:
   - name: checkout code
     uses: actions/checkout@v5.0.0
 
-  - name: Azure login
-    uses: Azure/login@v2.3.0
+  - name: Azure Login (OIDC)
+    uses: azure/login@v2.3.0
     with:
-     client-id: ${{ secrets.CLIENTID}}
-     tenant-id: ${{ secrets.TENANTID}}
-     subscription-id: ${{ secrets.SUBSCRIPTIONID}}
-     client-secret: ${{ secrets.CLIENTSECRET}}
+       client-id: ${{ secrets.AZURE_CLIENT_ID }}
+       tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+       subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+       auth-type: SERVICE_PRINCIPAL
 
   - name: login to ACR
     uses: docker/login-action@v3
